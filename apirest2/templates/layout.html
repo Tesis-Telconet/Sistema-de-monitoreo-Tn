@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Monitoreo</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=0.8, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="static/tables/bootstrap-table.min.css" >
+
+
+
+
+  <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="static/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="static/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="static/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="static/dist/css/skins/_all-skins.min.css">
+  <script src = "static/dist/js/jquery.min.js"></script>
+  <script src = "static/dist/js/moment.min.js"></script>
+  
+
+<!-- librerias para tablas -->
+   <!--<link href="static/tables/bootstrap-table.min.css" rel="stylesheet">-->
+   <link href="static/tables/colors.min.css" rel="stylesheet">
+   
+   <script src="static/tables/tableExport.min.js"></script>
+   <script src="static/tables/libs/jsPDF/jspdf.min.js"></script>
+   <script src="static/tables/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+   <script src="static/tables/bootstrap-table.min.js"></script>
+   <script src="static/tables/bootstrap-table-mobile.min.js"></script>
+   <script src="static/tables/bootstrap-table-export.min.js"></script>
+   <script src="static/tables/bootstrap-table-auto-refresh.min.js"></script>
+
+  
+  
+
+
+   
+  <!-- fuentes de gogle -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/index" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>TN</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>TELCO </b>MONITOREO</span>
+    </a>
+    <!-- barra superior-->
+    <nav class="navbar navbar-static-top">
+      <!-- ocultar barra-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"> 
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- menu usuario desplegable -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="static/dist/img/tn.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Telepuerto</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- imagen usuario-->
+              <li class="user-header">
+                <img src="static/dist/img/tn2.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Telepuerto- Administrador
+                  <small>Miembro desde  Nov. 2012</small>
+                </p>
+              </li>
+ 
+              <!-- Menu desplegable usuario-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="salir" class="btn btn-default btn-flat">Salir</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- configuracion -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =============================================== -->
+
+  <!-- barra lateral izquierda-->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="static/dist/img/tn2.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p> Telepuerto</p>
+          <a href=""><i class="fa fa-circle text-success"></i> En Linea</a>
+        </div>
+      </div>
+      
+      
+
+
+
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU PRINCIPAL</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-database"></i>
+            <span>Tablas de Datos </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="temp"><i class="fa fa-thermometer-empty"></i> Temperatura</a></li>
+            <li><a href="hum"><i class="fa fa-snowflake-o"></i> Humedad</a></li>
+            <li><a href="cor"><i class="fa fa-bolt"></i> Corriente</a></li>
+            <li><a href="vol"><i class="fa fa-battery-half"></i> Voltaje</a></li>
+            <li><a href="gas"><i class="fa fa-fire"></i> MQ2</a></li>
+            <li><a href="log"><i class="fa fa-pencil-square-o"></i> Logs</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-play-circle-o"></i>
+            <span>Tiempo real </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="chart"><i class="fa fa-thermometer-empty"></i> Temperatura</a></li>
+            <li><a href="charh"><i class="fa fa-snowflake-o"></i> Humedad</a></li>
+            <li><a href="charc"><i class="fa fa-bolt"></i> Corriente UPS</a></li>
+            <li><a href="charcg"><i class="fa fa-bolt"></i> Corriente generador</a></li>
+            <li><a href="charv"><i class="fa fa-vimeo"></i> Voltaje UPS</a></li>
+            <li><a href="charvg"><i class="fa fa-vimeo-square"></i> Voltaje generador</a></li>
+            <li><a href="charg"><i class="fa fa-fire"></i> MQ2</a></li>
+            <li><a href="log"><i class="fa fa-pencil-square-o"></i> Logs</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item active">
+          <a href="ame">
+            <i class="fa fa-newspaper-o"></i> <span>Amenazas Fisicas</span>    
+          </a>          
+        </li>
+        <div class="user-panel">
+        <iframe src="https://calendar.google.com/calendar/b/2/embed?height=300&amp;wkst=1&amp;bgcolor=%233F51B5&amp;ctz=America%2FGuayaquil&amp;src=dGVsZXB1ZXJ0by51aW9AZ21haWwuY29t&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZXMuZWMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showDate=1&amp;showNav=1&amp;showTz=0&amp;title=Calendario" style="border:solid 1px #777" width="215" height="300" frameborder="0" scrolling="no"></iframe> 
+        </div>
+      </ul>
+      <div style="text-align:center;padding:1em 0;"> <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/3652462"><span style="color:gray;">Hora actual en</span><br />Quito, Ecuador</a></h4> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FGuayaquil" width="100%" height="90" frameborder="0" seamless></iframe> </div>
+     
+      
+      <div class="user-panel">
+      <!-- www.tutiempo.net - Ancho:219px - Alto:384px -->
+<div id="TT_Fyak1kk11dfI2s1A7AzzDjDDjCuALf22Lt1tkcy5akz">El tiempo - Tutiempo.net</div>
+<script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_Fyak1kk11dfI2s1A7AzzDjDDjCuALf22Lt1tkcy5akz"></script>
+</div>
+      
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- =============================================== -->
+
+  <!-- barra subtitulos -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <i class="fa fa-folder-open"></i> Panel Monitoreo  Version 1.0
+        <div class="pull-right hidden-xs">
+          <i class="fa fa-thermometer-empty"></i> <i class="fa fa-bolt"></i> <i class="fa fa-snowflake-o"></i> <i class="fa fa-google-wallet"></i> <small>Monitoreo de amenzas fisicas</small>
+        </div>
+    </section>
+
+    <!-- contenido principal -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <!-- Default box -->
+              <table id="table1" 
+              data-height="150" 
+              data-row-style="rowStyle"  
+              data-toggle="table"  
+              data-sort-name="id"
+              data-sort-order="desc" 
+                data-auto-refresh="true" data-url="http://192.168.100.48:5000/SensorData/log">
+                <thead>
+                  <tr>
+                    <th data-field="id" data-sortable="true">id</th>
+                    <th data-field="log" data-sortable="true">Mensaje Sistema</th>
+                    <th data-field="fecha" data-sortable="true">Fecha</th>
+                    <script>
+                      
+                      function rowStyle(rows, index) {
+
+                        return {
+                          css: {
+                            color: 'red'
+                          }
+                        };
+                      }
+                    </script>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+    
+          <div class="box">
+            <div class="box-body">
+              {% block content %}
+    
+    
+              {% endblock %}
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <strong>Copyright &copy; 2018 <a href="https://www.telconet.net/">Telconet S.A</a>.</strong> | Todos los
+              Derechos Reservados.
+            </div>
+            <!-- /.box-footer-->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.18
+    </div>
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+       
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="static/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="static/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="static/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="static/dist/js/demo.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Main content -->
+  <h3 style="color:rgb(85, 16, 196);" align="center">DATOS EN TIEMPO REAL</h3style>
+    
+  <script src="static/charts/libs/highcharts.js"></script>
+  <script src="static/charts/libs/data.js"></script>
+  <script src="static/charts/libs/exporting.js"></script>
+  <script src="static/charts/libs/jquery.min.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- lado derecho -->
+            <div class="col-md-12">
+                 <!-- Grafico G1-->
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">  
+                        <div id="container1" style="height: 400px; min-width: 310px; max-width: 900px"></div>
+                        <script>
+                            Highcharts.chart('container1', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Humedad Sensor 1'
+                                },
+
+                                subtitle: {
+                                    text: 'Ubicación:Nodo'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.48:5000/SensorData/gas/gas',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

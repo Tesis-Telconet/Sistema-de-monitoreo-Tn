@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    function actualizar(){location.reload(true);}
+  //Función para actualizar cada 4 segundos(4000 milisegundos)
+    setInterval("actualizar()",4000);
+  </script>
+<style>
+    #toolbar {
+      margin: 0;
+    }
+    <style>
+      #toolbar {
+        margin: 0;
+      }
+      </style>
+    <table
+    
+      id="table"
+      data-height="460"
+      data-show-refresh="true"
+      data-auto-refresh="true"
+      data-url="http://192.168.100.48:5000/SensorData/log"
+      data-search="true"
+      data-pagination="true"
+      
+      data-sort-name="name"
+      data-sort-order="desc"
+      data-show-toggle="true"
+      data-show-columns="true"
+      data-show-export="true"
+      data-export-data-type="all"
+      data-query-params="queryParams">
+      <thead>
+        <tr>
+          <th data-field="id"data-sortable="true">N</th>
+          <th data-field="log"data-sortable="true">Mensaje</th>
+          <th data-field="fecha">Fecha</th>
+        </tr>
+      </thead>
+    </table>
+    
+    <script>
+      var $table = $('#table')
+    
+      $(function() {
+        $table.bootstrapTable()
+      })
+    
+      function queryParams(params) {
+        var options = $table.bootstrapTable('getOptions')
+        if (!options.pagination) {
+          params.limit = options.totalRows
+        }
+        return params
+      }
+    </script>

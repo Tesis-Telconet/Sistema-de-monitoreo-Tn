@@ -1,0 +1,185 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Main content -->
+  <h3 style="color:rgb(85, 16, 196);" align="center">DATOS EN TIEMPO REAL</h3style>
+    
+  <script src="static/charts/libs/highcharts.js"></script>
+  <script src="static/charts/libs/data.js"></script>
+  <script src="static/charts/libs/exporting.js"></script>
+  <script src="static/charts/libs/jquery.min.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- lado derecho -->
+            <div class="col-md-6">
+                 <!-- Grafico T1-->
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">  
+                        <div id="container1" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container1', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente E.E.Q'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: R'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/R-LR',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                   
+                    </div>
+                </div>
+
+                <!-- Grafico T3-->
+                <div class="card card-primary card-outline">  
+                    <div class="card-body">  
+                        <div id="container3" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container3', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente E.E.Q'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: S'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/R-LS',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                   
+                    </div>
+                </div>
+               
+                <!-- Grafico T5-->
+                <div class="card card-primary card-outline">
+                    <div class="card-body">
+                        <div id="container5" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container5', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente E.E.Q'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: T'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/R-LT',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script> 
+                    </div>
+                </div>               
+            </div>
+ 
+            <!-- lado izquierdo-->
+            <div class="col-md-6">
+                <!-- Grafico T2-->  
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">
+                        <div id="container2" style="height: 400px; min-width: 310px; max-width: 500px"></div>                    
+                        <script>
+                            Highcharts.chart('container2', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente Generador'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: R'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/G-LR',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                       
+                    </div>
+                </div>
+
+
+                <!-- Grafico T4-->  
+                <div class="card card-primary card-outline"> 
+                    <div class="card-body">
+                        <div id="container4" style="height: 400px; min-width: 310px; max-width: 500px"></div>                   
+                        <script>
+                                                Highcharts.chart('container4', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente Generador'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: S'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/G-LS',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Grafico T6-->  
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">
+                        <div id="container6" style="height: 400px; min-width: 310px; max-width: 500px"></div>
+                        <script>
+                            Highcharts.chart('container6', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Corriente Generador'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: T'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/corriente/G-LT',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

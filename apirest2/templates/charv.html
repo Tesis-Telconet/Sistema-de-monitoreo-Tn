@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Main content -->
+  <h3 style="color:rgb(85, 16, 196);" align="center">DATOS EN TIEMPO REAL</h3style>
+    
+  <script src="static/charts/libs/highcharts.js"></script>
+  <script src="static/charts/libs/data.js"></script>
+  <script src="static/charts/libs/exporting.js"></script>
+  <script src="static/charts/libs/jquery.min.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- lado derecho -->
+            <div class="col-md-6">
+                 <!-- Grafico T1-->
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">  
+                        <div id="container1" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container1', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS1'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 1'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.48:5000/SensorData/voltaje/U1-L1',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                   
+                    </div>
+                </div>
+
+                <!-- Grafico T3-->
+                <div class="card card-primary card-outline">  
+                    <div class="card-body">  
+                        <div id="container3" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container3', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS2'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 1'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/voltaje/U2-L1',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                   
+                    </div>
+                </div>
+               
+                <!-- Grafico T5-->
+                <div class="card card-primary card-outline">
+                    <div class="card-body">
+                        <div id="container5" style="height: 400px; min-width: 310px; max-width: 600px"></div>
+                        <script>
+                            Highcharts.chart('container5', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS3'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 1'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/voltaje/U3-L1',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script> 
+                    </div>
+                </div>               
+            </div>
+ 
+            <!-- lado izquierdo-->
+            <div class="col-md-6">
+                <!-- Grafico T2-->  
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">
+                        <div id="container2" style="height: 400px; min-width: 310px; max-width: 500px"></div>                    
+                        <script>
+                            Highcharts.chart('container2', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS1'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 2'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/voltaje/U1-L2',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                       
+                    </div>
+                </div>
+
+
+                <!-- Grafico T4-->  
+                <div class="card card-primary card-outline"> 
+                    <div class="card-body">
+                        <div id="container4" style="height: 400px; min-width: 310px; max-width: 500px"></div>                   
+                        <script>
+                                                Highcharts.chart('container4', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS2'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 2'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.48:5000/SensorData/voltaje/U2-L2',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Grafico T6-->  
+                <div class="card card-primary card-outline">                   
+                    <div class="card-body">
+                        <div id="container6" style="height: 400px; min-width: 310px; max-width: 500px"></div>
+                        <script>
+                            Highcharts.chart('container6', {
+                                chart: {
+                                    type: 'spline'
+                                },
+                                title: {
+                                    text: 'Voltaje UPS3'
+                                },
+
+                                subtitle: {
+                                    text: 'Linea: 2'
+                                },
+
+                                data: {
+                                    rowsURL: 'http://192.168.100.70:5000/SensorData/voltaje/U3-L2',
+                                    firstRowAsNames: false,
+                                    enablePolling: true
+                                }
+                            });
+                        </script>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+  #toolbar {
+    margin: 0;
+  }
+  </style>
+
+<table
+
+  id="table"
+  data-height="750"
+  data-header-style="headerStyle"
+  data-show-refresh="true"
+  data-auto-refresh="true"
+  data-url="http://192.168.100.48:5000/SensorData/corriente"
+  data-search="true"
+  data-strict-search="true"
+  data-pagination="true"
+  data-sort-name="name"
+  data-sort-order="desc"
+  data-show-toggle="true"
+  data-show-columns="true"
+  data-show-export="true"
+  data-export-data-type="all"
+  data-query-params="queryParams">
+  <thead>
+    <tr>
+      <th data-field="id"data-sortable="true"># ID</th>
+      <th data-field="login"data-sortable="true">Sensor</th>
+      <th data-field="corriente"data-sortable="true">Corriente</th>
+      <th data-field="fecha"data-sortable="true">Fecha</th>
+    </tr>
+  </thead>
+</table>
+
+<script>
+  var $table = $('#table')
+
+  $(function() {
+    $table.bootstrapTable()
+  })
+  function headerStyle(column) {
+    return {
+      id: {
+        css: {background: 'lavender',color: 'midnightblue'}
+      },
+      login: {
+        css: {background: 'lavender',color: 'midnightblue'}
+      },
+      corriente: {
+        css: {background: 'lavender',color: 'midnightblue'}
+      },
+      fecha: {
+        css: {background: 'lavender',color: 'midnightblue'}
+      }
+    }[column.field]
+  }
+  
+
+</script>
+  
+  {% endblock %}
