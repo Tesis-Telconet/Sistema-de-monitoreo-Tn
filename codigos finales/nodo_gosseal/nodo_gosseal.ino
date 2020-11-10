@@ -168,7 +168,7 @@ a:
 
       delay(5000);
        if ( t1 <= 15 ||t2 <= 15 ||t3 <= 15 ||t4 <= 15 || t5 <= 15   )
-      { texto = "Temperatura alta:Nodo"; //si la temperaura esta fuera del rango, nos envia un mensaje
+      { texto = "Temperatura baja:Nodo"; //si la temperaura esta fuera del rango, nos envia un mensaje
         http_POST_log(texto);
       }
 
